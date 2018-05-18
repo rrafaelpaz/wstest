@@ -17,9 +17,9 @@ jobs:
     working_directory: ~/repo
     #working_directory: ~/${wstest}
     
-   # dependencies:
-    #  override:
-     #   - sudo pip install awscli
+    dependencies:
+     override:
+       - sudo pip install awscli
      deployment:
        prod:
          branch: master
