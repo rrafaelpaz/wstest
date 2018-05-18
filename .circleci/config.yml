@@ -37,7 +37,7 @@ jobs:
       
       - deploy:
           name: deploy
-          command: 
+          commands: 
             - aws s3 sync /home/circleci/wstest s3://circleciwar --delete
    
       # Download and cache dependencies
