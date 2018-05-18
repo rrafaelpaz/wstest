@@ -24,7 +24,8 @@ jobs:
       prod:
         branch: master
         commands:
-          - 'aws s3 sync ${wstest}/ s3://${circleciawar} --region us-west-2'
+          - aws s3 sync /home/circleci/wstest s3://circleciwar --delete
+         #- 'aws s3 sync ${wstest}/ s3://${circleciwar} --region us-west-2'
     
     environment:
       # Customize the JVM maximum heap limit
