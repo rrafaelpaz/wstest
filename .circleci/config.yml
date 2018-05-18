@@ -26,6 +26,12 @@ jobs:
         #commands:
           #- aws s3 sync /home/circleci/wstest s3://circleciwar --delete
          #- 'aws s3 sync ${wstest}/ s3://${circleciwar} --region us-west-2'
+         
+   deployment:
+     prod:
+        branch: master
+      commands:
+        - aws s3 sync /home/circleci/wstest s3://circleciwar --delete
     
     environment:
       # Customize the JVM maximum heap limit
@@ -34,12 +40,6 @@ jobs:
     
     steps:
       - checkout
-      
-      - deploy:
-          name: deploy
-          commands: 
-            - aws s3 sync /home/circleci/wstest s3://circleciwar --delete
-   
       # Download and cache dependencies
       - restore_cache:
           keys:
