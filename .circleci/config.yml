@@ -9,7 +9,7 @@ deploy:
         at: "~/${wstest}"
     - 
       run: 
-        command: "aws s3 sync ~/repo/ s3://${circleciwar}"
+        command: "aws s3 sync ${wstest} s3://${circleciwar}"
         name: Deploy
   working_directory: "~/${wstest}"
 jobs: 
