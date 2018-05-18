@@ -14,16 +14,25 @@ jobs:
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/postgres:9.4
       
-    dependencies:
-      override:
-        - sudo pip install awscli
-    deployment:
-      prod:
-        branch: master
-        commands:
-          - aws s3 sync /wstest s3://circleciawar --delete
+    #dependencies:
+     # override:
+      #  - sudo pip install awscli
+    #deployment:
+      #prod:
+        #branch: master
+        #commands:
+          #- aws s3 sync /wstest s3://circleciawar --delete
 
-    working_directory: ~/repo
+    #working_directory: ~/repo
+    
+    deploy:
+    machine:
+      enabled: true
+    working_directory: ~/circle-tmp-folder
+    steps:
+       - run:
+          name: Deploy
+          command: 'aws s3 sync ${wstest}/ s3://${circleciawar} --region us-west-2'
 
     environment:
       # Customize the JVM maximum heap limit
