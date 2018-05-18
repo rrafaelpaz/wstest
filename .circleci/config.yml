@@ -1,17 +1,13 @@
 --- 
 deploy: 
-  docker: 
-    - 
-      image: "circleci/openjdk:8-jdk"
+  machine: 
+    enabled: true
   steps: 
     - 
-      attach_workspace: 
-        at: "~/${wstest}"
-    - 
       run: 
-        command: "aws s3 sync ${wstest} s3://${circleciwar}"
+        command: "aws s3 sync ${wstest}/ s3://${circleciwar} --region us-west-2"
         name: Deploy
-  working_directory: "~/${wstest}"
+  working_directory: ~/repo
 jobs: 
   build: 
     docker: 
@@ -50,4 +46,3 @@ workflows:
       run: "gradle test"
   version: 2
   working_directory: ~/repo
-  #test
