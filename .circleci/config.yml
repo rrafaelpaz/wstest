@@ -1,13 +1,9 @@
 --- 
-deploy: 
-  machine: 
-    enabled: true
-  steps: 
-    - 
-      run: 
-        command: "aws s3 sync ${wstest}/ s3://${circleciwar} --region us-west-2"
-        name: Deploy
-  working_directory: ~/repo
+deployment: 
+  prod: 
+    branch: master
+    commands: 
+      - "aws s3 sync ${wstest} s3://s3-ap-southeast-2.amazonaws.com/circleciwar// --delete"
 jobs: 
   build: 
     docker: 
@@ -46,4 +42,5 @@ workflows:
       run: "gradle test"
   version: 2
   working_directory: ~/repo
+
 
