@@ -17,23 +17,17 @@ jobs:
     working_directory: ~/repo
     #working_directory: ~/${wstest}
     
-    #dependencies:
-      #override:
-        #- sudo pip install awscli
-    #deployment:
-      #prod:
-        #branch: master
-        #commands:
-          #- aws s3 sync /home/circleci/wstest s3://circleciwar --delete
+    dependencies:
+      override:
+        - sudo pip install awscli
+     deployment:
+       prod:
+         branch: master
+         commands:
+          - aws s3 sync /home/circleci/wstest s3://circleciwar --delete
          #- 'aws s3 sync ${wstest}/ s3://${circleciwar} --region us-west-2'
-         
-   deployment:
-     prod:
-      branch: master
-      commands:
-        - aws s3 sync /home/circleci/wstest s3://circleciwar --delete
-    
-    environment:
+   
+   environment:
       # Customize the JVM maximum heap limit
       JVM_OPTS: -Xmx3200m
       TERM: dumb
