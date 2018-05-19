@@ -25,12 +25,11 @@ jobs:
         run: "gradle test"
     working_directory: ~/repo
   deploy: 
-    machine: 
-      enabled: true
+    name: deploy
     steps: 
       - 
         run: 
-          command: 'aws s3 sync ${repo}/ s3://${circleciwar} --region us-west-2'
+          command: "aws s3 sync ${wstest}/ s3://${circleciwar} --region us-west-2"
           name: Deploy
     working_directory: ~/repo
 version: 2
