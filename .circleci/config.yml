@@ -30,10 +30,10 @@ jobs:
         run: 
           command: "sudo apt-get -y -qq install awscli"
           name: "Install awscli"
-      #- 
-        #run: 
-          #command: "sudo aws configure"
-          #name: "show credentials"
+      - 
+        run: 
+          command: "sudo aws configure list"
+          name: "show credentials"
       - 
         run: 
           command: "sudo aws s3 sync ~/repo s3://circleciwar --delete"
