@@ -20,6 +20,8 @@ jobs:
             - ~/.gradle
       - 
         run: "gradle test"
+      - 
+        run: "gradle war"
     working_directory: /tmp/app
   deploy-job: 
     docker: 
