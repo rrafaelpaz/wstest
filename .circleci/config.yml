@@ -23,16 +23,16 @@ jobs:
       - 
         run: "gradle war"
       - 
-        persist_to_workspace: 
-          paths: 
-            - ${build}/*
-          root: ~/${wstest}
-      - 
         run: "ls /tmp/app/build/libs"
       - 
         run: "ls /tmp/"
       - 
         run: "ls /"
+      - 
+       persist_to_workspace: 
+         paths: 
+           - ${build}/*
+         root: ~/${wstest}
     working_directory: /tmp/app
   deploy-job: 
     docker: 
