@@ -22,10 +22,11 @@ jobs:
         run: "gradle test"
       - 
         run: "gradle war"
-      - persist_to_workspace:
-          root: /tmp
-          paths:
+      - 
+        persist_to_workspace: 
+          paths: 
             - /app
+          root: /tmp
       - 
         run: "ls /tmp/app/build/libs"
       - 
