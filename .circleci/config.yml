@@ -24,10 +24,9 @@ jobs:
       - 
         run: "gradle test"
     working_directory: ~/repo
-    
- deploy: 
-  machine: 
+  deploy: 
     enabled: true
+    machine: ~
   steps: 
     - 
       run: 
@@ -35,3 +34,15 @@ jobs:
         name: Deploy
   working_directory: ~/repo
 version: 2
+workflows: 
+  build-deploy: 
+    jobs: 
+      - build-job
+      - 
+        deploy-job: 
+          filters: 
+            branches: 
+              only: master
+          requires: 
+            - build-job
+  version: 2
