@@ -4,9 +4,6 @@ jobs:
     docker: 
       - 
         image: "circleci/openjdk:8-jdk"
-    environment: 
-      JVM_OPTS: "-Xmx3200m"
-      TERM: dumb
     steps: 
       - checkout
       - 
@@ -24,13 +21,11 @@ jobs:
       - 
         run: "gradle test"
     working_directory: ~/repo
-  deploy: 
-    enabled: true
-    machine: ~
-  steps: 
-    - 
-      run: 
-        command: "aws s3 sync ${wstest} s3://s3-ap-southeast-2.amazonaws.com/circleciwar/--delete"
-        name: Deploy
+  test: ~
+version: 2
+workflows: 
+  build_and_test: 
+    jobs: 
+      - build
+      - test
   version: 2
-  working_directory: ~/repo
