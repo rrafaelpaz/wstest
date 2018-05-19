@@ -32,7 +32,7 @@ jobs:
        persist_to_workspace: 
          paths: 
            - ${build}/*
-         root: ~/${wstest}
+         root: /tmp/app
     working_directory: /tmp/app
   deploy-job: 
     docker: 
