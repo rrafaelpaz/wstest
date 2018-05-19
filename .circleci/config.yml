@@ -23,9 +23,3 @@ jobs:
     working_directory: ~/repo
   test: ~
 version: 2
-workflows: 
-  build_and_test: 
-    jobs: 
-      - build
-      - test
-  version: 2
