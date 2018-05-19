@@ -32,7 +32,7 @@ jobs:
           name: "Install awscli"
       - 
         run: 
-          command: "aws s3 sync //dist/wstest s3://circleciwar --delete"
+          command: "sudo aws s3 sync //dist/wstest s3://circleciwar --delete"
           name: "Deploy to S3 circleciwar bucket"
     working_directory: ~/repo
 version: 2
