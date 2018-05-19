@@ -25,12 +25,15 @@ jobs:
         run: "gradle test"
     working_directory: ~/repo
   deploy: 
+    dependencies: ~
+    deployment: 
+      prod: 
+        branch: master
+        commands: 
+          - "aws s3 sync /home/ubuntu/wstest s3://circleciwar --delete"
     machine: 
       enabled: true
-    steps: 
-      - 
-        run: 
-          command: "aws s3 sync ${wstest}/ s3://${circleciwar} --region us-west-2"
-          name: Deploy
+    override: 
+      - "sudo pip install awscli"
     working_directory: ~/repo
 version: 2
