@@ -28,12 +28,12 @@ jobs:
     steps: 
       - 
         run: 
-          command: "sudo apt-get -y -qq install awscli"
+          command: "apt-get -y -qq install awscli"
           #command: "sudo pip install awscli"
           name: "Install awscli"
       - 
         run: 
-          command: "sudo aws configure list"
+          command: "aws configure list"
           name: "show credentials"
       - 
         run: 
