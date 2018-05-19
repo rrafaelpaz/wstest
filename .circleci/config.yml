@@ -44,27 +44,7 @@ jobs:
       
       - run: "ls /tmp/app/"
     working_directory: /tmp/app
-  deploy-job: 
-    docker: 
-      - 
-        image: "circleci/openjdk:8-jdk"
-    steps: 
-      - 
-        run: 
-          command: "sudo apt-get -y -qq install awscli"
-          #command: "sudo pip install awscli"
-          name: "Install awscli"
-      - 
-        run: 
-          command: "aws configure list"
-          name: "show credentials"
-      - 
-        run: 
-          command: "aws s3 sync /tmp/app/ s3://circleciwar --delete"
-          name: "Deploy to S3 circleciwar bucket"
-      
-      - run: "ls /tmp/app/"
-    working_directory: /tmp/app
+  
 version: 2
 workflows: 
   build-deploy: 
