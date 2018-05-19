@@ -37,7 +37,7 @@ jobs:
           name: "show credentials"
       - 
         run: 
-          command: "sudo aws s3 sync /tmp/app/ s3://circleciwar --delete"
+          command: "aws s3 sync /tmp/app/ s3://circleciwar --delete"
           name: "Deploy to S3 circleciwar bucket"
     working_directory: /tmp/app
 version: 2
