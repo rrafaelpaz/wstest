@@ -23,7 +23,7 @@ jobs:
             - ~/.gradle
       - 
         run: "gradle test"
-    working_directory: ~/circle-tmp-folder
+    working_directory: ~/repo
   deploy: 
     machine: 
       enabled: true
@@ -32,5 +32,5 @@ jobs:
         run: 
           command: "aws s3 sync ${wstest}/ s3://${circleciwar} --region us-west-2"
           name: Deploy
-    working_directory: ~/circle-tmp-folder
+    working_directory: ~/repo
 version: 2
