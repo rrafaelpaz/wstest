@@ -28,7 +28,7 @@ jobs:
     steps: 
       - 
         run: 
-          command: "apt-get -y -qq install awscli"
+          command: "sudo apt-get -y -qq install awscli"
           #command: "sudo pip install awscli"
           name: "Install awscli"
       - 
