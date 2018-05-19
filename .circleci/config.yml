@@ -28,10 +28,9 @@ jobs:
         run: "ls /tmp/"
       - 
         run: "ls /"
-      - persist_to_workspace:
-          root: /home/circleci
-          paths:
-            - .
+      - 
+        run: "gradle clean"
+          
     working_directory: /tmp/app
   deploy-job: 
     docker: 
