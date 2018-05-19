@@ -28,7 +28,7 @@ jobs:
     steps: 
       - 
         run: 
-          command: sudo pip install awscli
+          command: sudo -H pip install awscli
           name: "Install awscli"
       - 
         run: 
