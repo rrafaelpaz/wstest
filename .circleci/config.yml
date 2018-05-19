@@ -23,7 +23,7 @@ jobs:
       - 
         run: "gradle war"
       - 
-        run: "ls /tmp/app/build/libs"
+        run: "ls /tmp/app/"
       - 
         run: "ls /tmp/"
       - 
