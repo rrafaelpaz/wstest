@@ -25,8 +25,8 @@ jobs:
         run: "gradle test"
       - 
         run: "gradle build"
-      - 
-        run: "gradle war"
+      #- 
+       # run: "gradle war"
       - 
         run: "ls /tmp/app/"
       - 
