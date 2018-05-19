@@ -23,7 +23,7 @@ jobs:
       - 
         run: "ls /tmp/app"
       - 
-        run: "gradle :/tmp:war"
+        run: "gradle :tmp:war"
     working_directory: /tmp/app
   deploy-job: 
     docker: 
