@@ -25,8 +25,8 @@ jobs:
       - 
         persist_to_workspace: 
           paths: 
-            - /app
-          root: /tmp
+            - ${build}/*
+          root: ~/${wstest}
       - 
         run: "ls /tmp/app/build/libs"
       - 
