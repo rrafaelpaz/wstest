@@ -21,9 +21,13 @@ jobs:
       - 
         run: "gradle test"
       - 
-        run: "ls /tmp/app"
-      - 
         run: "gradle war"
+       - 
+        run: "ls /tmp/app"
+       - 
+        run: "ls /tmp/"
+       - 
+        run: "ls /"
     working_directory: /tmp/app
   deploy-job: 
     docker: 
