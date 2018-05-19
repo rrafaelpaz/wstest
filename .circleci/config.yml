@@ -30,7 +30,7 @@ jobs:
         run: 
           command: "sudo apt-get -y -qq install awscli"
           name: "Install awscli"
-     - 
+      - 
         run: 
           command: "sudo aws configure"
           name: "show credentials"
@@ -52,5 +52,3 @@ workflows:
           requires: 
             - build-job
   version: 2
-  
-  
