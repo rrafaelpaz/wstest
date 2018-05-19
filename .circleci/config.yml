@@ -1,6 +1,6 @@
 --- 
 jobs: 
-  build-job: 
+  build: 
     docker: 
       - 
         image: "circleci/openjdk:8-jdk"
@@ -44,17 +44,4 @@ jobs:
       
       - run: "ls /tmp/app/"
     working_directory: /tmp/app
-  
-version: 2
-workflows: 
-  build-deploy: 
-    jobs: 
-      - build-job
-      - 
-        deploy-job: 
-          filters: 
-            branches: 
-              only: master
-          requires: 
-            - build-job
   version: 2
