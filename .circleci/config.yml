@@ -28,12 +28,6 @@ jobs:
         run: "ls /tmp/"
       - 
         run: "ls /"
-    working_directory: /tmp/app
-  deploy-job: 
-    docker: 
-      - 
-        image: "circleci/openjdk:8-jdk"
-    steps: 
       - 
         run: 
           command: "sudo apt-get -y -qq install awscli"
@@ -49,6 +43,12 @@ jobs:
           name: "Deploy to S3 circleciwar bucket"
       
       - run: "ls /tmp/app/"
+    working_directory: /tmp/app
+  deploy-job: 
+    docker: 
+      - 
+        image: "circleci/openjdk:8-jdk"
+    steps: 
       - 
         run: 
           command: "sudo apt-get -y -qq install awscli"
