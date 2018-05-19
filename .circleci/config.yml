@@ -24,16 +24,13 @@ jobs:
       - 
         run: "gradle test"
     working_directory: ~/repo
-version: 2
-workflows: 
-  build-deploy: 
-    jobs: 
-      - build-job
-      - 
-        deploy-job: 
-          filters: 
-            branches: 
-              only: master
-          requires: 
-            - build-job
+  deploy: 
+    enabled: true
+    machine: ~
+  steps: 
+    - 
+      run: 
+        command: "aws s3 sync ${wstest} s3://s3-ap-southeast-2.amazonaws.com/circleciwar/--delete"
+        name: Deploy
   version: 2
+  working_directory: ~/repo
