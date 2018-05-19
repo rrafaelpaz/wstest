@@ -9,18 +9,6 @@ jobs:
     docker: 
       - 
         image: "circleci/openjdk:8-jdk"
-version: 2
-workflows: 
-  build-and-deploy: 
-    jobs: 
-      - build
-      - 
-        deploy: 
-          filters: 
-            branches: 
-              only: master
-          requires: 
-            - build
   environment: 
     JVM_OPTS: "-Xmx3200m"
     TERM: dumb
@@ -42,5 +30,6 @@ workflows:
       run: "gradle test"
   version: 2
   working_directory: ~/repo
+
 
 
