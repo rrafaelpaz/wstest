@@ -21,6 +21,8 @@ jobs:
       - 
         run: "gradle test"
       - 
+        run: "ls /tmp/app"
+      - 
         run: "gradle :/tmp/app:war"
     working_directory: /tmp/app
   deploy-job: 
