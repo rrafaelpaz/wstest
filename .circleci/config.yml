@@ -40,8 +40,6 @@ jobs:
       - 
         run: "ls ~/.ssh"        
       - 
-        run: "cd /root/.ssh/"
-      - 
         run: 
           command: "sudo apt-get -y -qq install awscli"
           name: "Install awscli"
