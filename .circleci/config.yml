@@ -32,7 +32,7 @@ jobs:
       - 
         run: "cd /tmp/ && ls -a"
       -
-        run: "cd /etc/ssh/ssh_config && ls -a"
+        run: "cd /etc/ssh/ && cat ssh_config"
       - 
         run: 
           command: "sudo apt-get -y -qq install awscli"
