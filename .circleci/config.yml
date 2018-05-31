@@ -3,16 +3,16 @@ jobs:
   build: 
     docker: 
       - 
-        add_ssh_keys: 
-          fingerprints: 
-            - "0c:21:eb:7f:ab:03:53:ed:1b:cf:22:35:11:9f:d8:2c"
-      - 
         image: "circleci/openjdk:8-jdk"
     environment: 
       JVM_OPTS: "-Xmx3200m"
       TERM: dumb
     steps: 
       - checkout
+      - 
+        add_ssh_keys: 
+          fingerprints: 
+            - "0c:21:eb:7f:ab:03:53:ed:1b:cf:22:35:11:9f:d8:2c"
       - 
         restore_cache: 
           keys: 
@@ -53,4 +53,3 @@ jobs:
           command: "scp -v -i /etc/ssh/ssh_config -P 1205 -r /tmp/app/build/libs/* ubuntu@localhost:/tmp/circleci_files"
     working_directory: /tmp/app
 version: 2
-
