@@ -48,4 +48,3 @@ jobs:
     working_directory: /tmp/app
 version: 2
 
-#
