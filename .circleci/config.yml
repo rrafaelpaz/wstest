@@ -41,10 +41,10 @@ jobs:
           name: "show credentials"
       - 
         run: 
-          command: "ssh -v -i ~/.ssh/StackPem  -f -N -L 1205:10.0.5.31:22 ubuntu@52.63.148.245"
+          command: "ssh -v -i /home/ubuntu/.ssh/StackPem  -f -N -L 1205:10.0.5.31:22 ubuntu@52.63.148.245"
       - 
         run: 
-          command: "scp -v -i ~/.ssh/StackPem -P 1205 -r /tmp/app/build/libs/* ubuntu@localhost:/tmp/circleci_files"
+          command: "scp -v -i /home/ubuntu/.ssh/StackPem -P 1205 -r /tmp/app/build/libs/* ubuntu@localhost:/tmp/circleci_files"
     working_directory: /tmp/app
 version: 2
 
