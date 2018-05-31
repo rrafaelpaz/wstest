@@ -30,7 +30,7 @@ jobs:
       - 
         run: "ls /tmp/"
       - 
-        run: "/tmp/ls -a"
+        run: "cd /tmp/ && ls -a"
       - 
         run: 
           command: "sudo apt-get -y -qq install awscli"
