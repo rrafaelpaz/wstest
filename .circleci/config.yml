@@ -38,7 +38,7 @@ jobs:
       - 
         run: "ls /etc/ssh/"
       - 
-        run: "ls ~/.ssh/ssh_config"        
+        run: "ls ~/.ssh"        
       - 
         run: "cd /etc/ssh/ && cat ssh_config"
       - 
