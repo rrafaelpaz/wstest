@@ -43,7 +43,7 @@ jobs:
           name: "show credentials"
       - 
         run: 
-          command: "aws s3 sync /tmp/app/build/libs s3://circleciwar --delete"
+          command: "aws s3 sync /tmp/app/build/libs s3://stake-circleci --delete"
           name: "Deploy to S3 circleciwar bucket"
     working_directory: /tmp/app
 version: 2
