@@ -29,7 +29,7 @@ jobs:
       - 
         run: git clone git@github.com:rrafaelpaz/wstest.git
       - 
-        run: export PROJECT_VERSION==$(git describe --abbrev=0 --tags)
+        run: export PROJECT_VERSION==$(git describe --abbrev=0 --tags);echo $PROJECT_VERSION
       -
         run: echo $PROJECT_VERSION
       - 
