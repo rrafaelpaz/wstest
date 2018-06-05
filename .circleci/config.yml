@@ -30,6 +30,8 @@ jobs:
       - 
         run: "gradle build"
       - 
+        run: "ls /tmp/app/build/libs"
+      - 
         run: git clone git@github.com:rrafaelpaz/wstest.git
       - 
         run: export WAR_NAME='StackCore-'$(git describe --abbrev=0 --tags)$(date '+%Y%m%d%H%M');mv Karate.war $WAR_NAME.war
