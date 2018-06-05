@@ -49,9 +49,7 @@ jobs:
           name: "show credentials"
       - 
         run: 
-          command: "ssh -v -i ~/.ssh/id_rsa_0c21eb7fab0353ed1bcf2235119fd82c  -f -N -L 1205:10.0.5.31:22 ubuntu@52.63.148.245"
-      - 
-        run: 
-          command: "scp -v -i ~/.ssh/id_rsa_0c21eb7fab0353ed1bcf2235119fd82c -P 1205 -r /tmp/app/build/libs/* ubuntu@localhost:/tmp/circleci_files"
+          command: "aws s3 sync /tmp/app/build/libs s3://circleciwar --delete"
+          name: "Deploy to S3 circleciwar bucket"
     working_directory: /tmp/app
 version: 2
