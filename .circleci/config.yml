@@ -26,6 +26,9 @@ jobs:
           paths: 
             - ~/.gradle
       - 
+        run: git describe
+         
+      - 
         run: "gradle test"
       - 
         run: "gradle build"
