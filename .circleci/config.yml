@@ -25,6 +25,9 @@ jobs:
           key: "v1-dependencies-{{ checksum \"build.gradle\" }}"
           paths: 
             - ~/.gradle
+            
+      - 
+        run: git clone git@github.com:rrafaelpaz/wstest.git
       - 
         run: git describe
          
