@@ -25,19 +25,18 @@ jobs:
           key: "v1-dependencies-{{ checksum \"build.gradle\" }}"
           paths: 
             - ~/.gradle
-            
-      - 
-        run: git clone git@github.com:rrafaelpaz/wstest.git
-      - 
-        run: export PROJECT_VERSION==$(git describe --abbrev=0 --tags);echo $PROJECT_VERSION
-      -
+       -
         run: echo $PROJECT_VERSION
       - 
         run: "gradle test"
       - 
         run: "gradle build"
       - 
-        run: "ls /tmp/app/"
+        run: git clone git@github.com:rrafaelpaz/wstest.git
+      - 
+        run: export WAR_NAME='StackCore-'$(git describe --abbrev=0 --tags)$(date '+%Y%m%d%H%M');mv Karate.war $WAR_NAME.war
+      - 
+        run: "ls /tmp/app/build/libs"
       - 
         run: "ls /tmp/"
       - 
