@@ -29,7 +29,9 @@ jobs:
       - 
         run: git clone git@github.com:rrafaelpaz/wstest.git
       - 
-        run: git describe --abbrev=0 --tags
+        run: PROJECT_VERSION=git describe --abbrev=0 --tags
+      -
+        run: echo $PROJECT_VERSION
       - 
         run: "gradle test"
       - 
