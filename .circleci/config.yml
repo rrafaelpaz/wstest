@@ -1,18 +1,11 @@
 --- 
 jobs: 
-  build: 
+  build-job: 
     docker: 
       - 
         image: "circleci/openjdk:8-jdk"
-    environment: 
-      JVM_OPTS: "-Xmx3200m"
-      TERM: dumb
     steps: 
       - checkout
-      - 
-        add_ssh_keys: 
-          fingerprints: 
-            - "0c:21:eb:7f:ab:03:53:ed:1b:cf:22:35:11:9f:d8:2c"
       - 
         restore_cache: 
           keys: 
@@ -26,35 +19,19 @@ jobs:
           paths: 
             - ~/.gradle
       - 
-        run: "gradle test"
+        run: "ls /tmp/app"
       - 
         run: "gradle build"
       - 
-        run: "cd /tmp/app/build/libs && export WAR_NAME='StackCore-'$(git describe --abbrev=0 --tags)$(date '+%Y%m%d%H%M') && mv Karate.war $WAR_NAME.war"
-      - 
-        run: git clone git@github.com:rrafaelpaz/wstest.git
-      - 
-        run: "ls /tmp/app/build/libs"
-      - 
-        run: "ls /tmp/"
-      - 
-        run: "cd /tmp/ && ls -a"
-      - 
-        run: "ls /etc/ssh/"
-      - 
-        run: "ls ~/.ssh"        
-      - 
-        run: 
-          command: "sudo apt-get -y -qq install awscli"
-          name: "Install awscli"
-      - 
-        run: 
-          command: "aws configure list"
-          name: "show credentials"
-      - 
-        run: 
-          command: "aws s3 sync /tmp/app/build/libs s3://circleciwar --delete"
-          name: "Deploy to S3 circleciwar bucket"
+        run: "gradle tasks"
     working_directory: /tmp/app
 version: 2
-#
+workflows: 
+  build-deploy: 
+    jobs: 
+      - 
+        build-job: 
+          filters: 
+            branches: 
+              only: master
+  version: 2
