@@ -24,6 +24,18 @@ jobs:
         run: "gradle build"
       - 
         run: "gradle tasks"
+      - 
+        run: 
+          command: "sudo apt-get -y -qq install awscli"
+          name: "Install awscli"
+      - 
+        run: 
+          command: "aws configure list"
+          name: "show credentials"
+      - 
+        run: 
+          command: "aws s3 sync /tmp/app/build/libs s3://circleciwar --delete"
+          name: "Deploy to S3 circleciwar bucket"
     working_directory: /tmp/app
 version: 2
 workflows: 
