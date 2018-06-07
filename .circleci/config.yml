@@ -45,6 +45,7 @@ workflows:
         build-job: 
           filters: 
             branches: 
-              only: master
+              only: 
+                - development
+                - /dev-.*/
   version: 2
-#
