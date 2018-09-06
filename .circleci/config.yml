@@ -20,8 +20,8 @@ jobs:
             - ~/.gradle
       - 
         run: "ls /tmp/app"
-      - run: "FOO=bar"  
-      - run: "FOO"
+      - run: "export foo="bar""  
+      - run: "$foo"
       - 
         run: "gradle build"
       - 
