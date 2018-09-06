@@ -48,6 +48,6 @@ workflows:
           filters: 
             branches: 
               only: 
-                - development
+                - master
                 - /dev-.*/
   version: 2
