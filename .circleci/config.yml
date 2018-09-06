@@ -20,10 +20,10 @@ jobs:
             - ~/.gradle
       - 
         run: "ls /tmp/app"
+      - run: "FOO=bar"  
+      - run: "FOO"
       - 
         run: "gradle build"
-      - 
-        run: ls /tmp/app/build/libs
       - 
         run: "gradle tasks"
       - 
