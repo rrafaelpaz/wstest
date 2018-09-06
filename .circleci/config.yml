@@ -22,8 +22,7 @@ jobs:
             - ~/.gradle
       - 
         run: "ls /tmp/app"
-      - 
-        run: "echo $FOO"
+      - run: echo "hello world"
       - 
         run: 
           command: "echo $FOO"
