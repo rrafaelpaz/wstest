@@ -25,6 +25,10 @@ jobs:
       - 
         run: "echo $FOO"
       - 
+        run: 
+          command: "echo $FOO"
+          name: "variable name"
+      - 
         run: "gradle build"
       - 
         run: "gradle tasks"
