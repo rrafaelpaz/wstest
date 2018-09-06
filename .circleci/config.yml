@@ -23,9 +23,7 @@ jobs:
       - 
         run: "gradle build"
       - 
-        run: 
-          command: "/tmp/app/build/libs"
-          name: "ls /tmp/app/build/libs "
+        run: "ls /tmp/app/build/libs "
       - 
         run: "gradle tasks"
       - 
